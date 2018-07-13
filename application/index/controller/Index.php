@@ -16,8 +16,9 @@ class Index
 
     public function select()
     {
-//        实例化控制器
-        $theDb = new Db();
-        $data = $theDb::table("add")->select();
+////        实例化控制器
+//        $theDb = new Db();
+//        $data = $theDb::table("add")->select();
+        $data = Db::table('add')->select();
     }
 }
