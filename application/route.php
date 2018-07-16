@@ -23,19 +23,12 @@
 use think\Route;
 //定义路由规则
 //Route::rule('路由表达式','路由地址','请求类型','路由参数（数组）','变量规则（数组）');
-//Route::rule('/','index/index/index');
-//Route::rule('/t','index/index/test');
-//Route::rule('/test','index/index/test?index=userinfo');
-//
+
 Route::rule([
-    '/'=>'index/index/index',
-    '/t'=>'index/index/test',
-    '/test'=>'index/index/test?index=userinfo'
+    '/send_code'=>'index/user/send_code',
+    '/new_user'=>'index/user/new_user',
+    'create_session'=>'index/user/create_session'
+//    '/yym' =>'index/user/user'
 ],'','get|post');
 
-//return[
-//    '/'=>'index/index/index',
-//    '/t'=>'index/index/test',
-//    '/test'=>'index/index/test?index=userinfo'
-//];
 

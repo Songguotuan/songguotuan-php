@@ -12,21 +12,16 @@
 return [
     // 数据库类型
     'type'            => 'mysql',
-
-    // 服务器地址
-    'hostname'        => '127.0.0.1',
-
+    // 服务器地址127.0.0.1
+    'hostname'        => '120.79.24.9',
     // 数据库名
     'database'        => 'acampus_cn',
-
     // 用户名
-    'username'        => 'add',
-
+    'username'        => 'acampus_cn',
     // 密码
-    'password'        => 'add',
-
+    'password'        => 'yym10295',
     // 端口
-    'hostport'        => '888',
+    'hostport'        => '3306',
     // 连接dsn
     'dsn'             => '',
     // 数据库连接参数

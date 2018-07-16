@@ -210,7 +210,11 @@ return [
         'type'           => '',
         // 是否自动开启 SESSION
         'auto_start'     => true,
+        //设置过期时间
+        'expire'         => 60*60*24*45,
+        'SESSION_OPTIONS' => array('use_only_cookies'=>0,'use_trans_sid'=>1),
     ],
+
 
     // +----------------------------------------------------------------------
     // | Cookie设置
