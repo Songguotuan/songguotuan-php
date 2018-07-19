@@ -17,7 +17,6 @@ class Smscode extends Base
     //入参：用户的phonenumber,$thecode
     //出参：success:ture    ;   false:false
     public function verifycode($phonenumber,$thecode){
-        global $connect;
         $result = db('smscode')->where('phonenumber',$phonenumber)->where('code',$thecode)->count();
         if ($result > 0){
             return true;

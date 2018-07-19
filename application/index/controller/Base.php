@@ -35,12 +35,10 @@ class Base extends Controller
     //出参：无
     public function new_session($sessioncode,$openid,$session_key){
         // 初始化session
-        $sessioncode = 3011165673;
         $array = array("$openid","$session_key");
         $jsona = json_encode($array);
         // 赋值think作用域
         Cache::set($sessioncode,$jsona,60*60*24*45);
-
     }
 
 
@@ -53,7 +51,6 @@ class Base extends Controller
         $array = json_decode($jsonb);
         $openid = $array[0];
         $session_key = $array[1];
-
         if (empty($openid) && empty($session_key)){
             return false;
 //            die(callback("false","session已过期"));

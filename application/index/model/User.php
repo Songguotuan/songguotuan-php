@@ -21,27 +21,26 @@ class user extends Model
         $DB = new Db();
         $base = new Base();
         $Smscode = new Smscode();
-
         $rigistertime = time();
         //$sessioncode是类session的一个实例
         $openid = $base->checksession($session);
-
         if ($openid == false){
             return false;
         }
 
-        $result = db('user')->where('openid',$openid) -> count();
-        if ($result > 0) {
-            return(callback("success", "此用户已注册"));
-        }
         //验证输入的验证码是否正确返回ture，false
         $result = false;
         $result = $Smscode->verifycode($phonenumber, $thecode);
         if ($result) {
-            DB::query("insert into user (openid,phonenumber,wxnickname,wxavatarurl,registertime) values ('$openid','$phonenumber','$wxnickname','$wxavatarurl','.$rigistertime.')");
-            return (callback("success", "注册成功"));
+            $result2 = db('user')->where('openid',$openid) -> count();
+            if ($result2 > 0) {
+                return($base -> callback("success", "登录成功"));
+            }else{
+                DB::query("insert into user (openid,phonenumber,wxnickname,wxavatarurl,registertime) values ('$openid','$phonenumber','$wxnickname','$wxavatarurl','.$rigistertime.')");
+                return ($base -> callback("success", "注册成功"));
+            }
         } else {
-            return (callback("false", "验证码不正确"));
+            return ($base -> callback("false", "验证码不正确"));
         }
     }
 
