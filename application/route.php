@@ -25,10 +25,19 @@ use think\Route;
 //Route::rule('路由表达式','路由地址','请求类型','路由参数（数组）','变量规则（数组）');
 
 Route::rule([
+    //————user————//
     '/send_code'=>'index/user/send_code',
     '/new_user'=>'index/user/new_user',
-    'create_session'=>'index/user/create_session'
-//    '/yym' =>'index/user/user'
+    'create_session'=>'index/user/create_session',
+    'send_school_id'=>'index/user/send_school_id',
+    //————order————//
+    'fetch_order'=>'index/order/fetch_order',
+    'fetch_order_index'=>'index/order/fetch_order_index',
+
+    //————home————//
+    'get_carousel'=>'index/home/get_carousel',
+    'fetch_pull'=>'index/home/fetch_pull',
+    'pull_school'=>'index/home/pull_school'
 ],'','get|post');
 
 

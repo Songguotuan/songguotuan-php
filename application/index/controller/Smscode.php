@@ -70,7 +70,7 @@ class Smscode extends Base
                 //大于两分钟
                 //避免短信服务器bug所以重新发送相同的验证码
                 $oldcode=Db::query("select code from smscode WHERE phonenumber = ".$phonenumber." ");
-                $oold=$oldcode[0]['code'];                         //改动啦去掉了引号
+                $oold=$oldcode[0]['code'];
                 $time_end2 = time();
                 $sql3_result = Db::execute("UPDATE smscode SET time_end = ".$time_end2." WHERE phonenumber = ".$phonenumber." ");
                 return to_sendcode($oold,$phonenumber);

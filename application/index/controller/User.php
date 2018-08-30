@@ -13,7 +13,6 @@ use app\index\controller\Smscode;
 
 class User extends Base
 {
-
     //发送短信验证码
     public function send_code(){
         $Smscode = new Smscode();
@@ -28,8 +27,6 @@ class User extends Base
         return $result;
     }
 
-
-
     //生成每个用户的唯一标识并给前端传回session值
     public function create_session(){
         $user = new Users();
@@ -37,26 +34,12 @@ class User extends Base
         return $result;
     }
 
-
-
-    public function haha(){
-        $user = $this->hahaa();
-        echo $user;
+    //将用户学校的id存入数据库
+    public function send_school_id(){
+        $user = new Users();
+        $result = $user -> send_school_id($_POST['session'],$_POST['province_id'],$_POST['school_id']);
+        return $result;
     }
 
-
-
-//    public function tb()
-//    {
-//        //实例化数据模型
-////        $user = new \app\index\model\User;
-////        dump($user::get(1));
-//        return"ttbb";
-//        $DB = new Db;
-//
-//        $data = $DB::table("user") -> select();
-//        return "$data";
-//        dump($data);
-//    }
 
 }

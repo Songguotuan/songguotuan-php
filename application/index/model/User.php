@@ -27,7 +27,6 @@ class user extends Model
         if ($openid == false){
             return false;
         }
-
         //验证输入的验证码是否正确返回ture，false
         $result = false;
         $result = $Smscode->verifycode($phonenumber, $thecode);
@@ -36,7 +35,7 @@ class user extends Model
             if ($result2 > 0) {
                 return($base -> callback("success", "登录成功"));
             }else{
-                DB::query("insert into user (openid,phonenumber,wxnickname,wxavatarurl,registertime) values ('$openid','$phonenumber','$wxnickname','$wxavatarurl','.$rigistertime.')");
+                DB::query("insert into user (openid,phonenumber,wxnickname,wxavatarurl,registertime) values ('$openid','$phonenumber','$wxnickname','$wxavatarurl','$rigistertime')");
                 return ($base -> callback("success", "注册成功"));
             }
         } else {
@@ -67,12 +66,17 @@ class user extends Model
         return ($base -> callback("success","$code"));
     }
 
-
-
-
-    public function get_member(){
-        return 3;
+    //将用户学校的id存入数据库
+    public function send_school_id($session,$province_id,$school_id){
+        $base = new Base();
+        $openid = $base->checksession($session);
+        if ($openid == false){
+            return false;
+        }
+        db('user')->where('openid',$openid)->update(['province_id' => $province_id,'school_id' => $school_id]);
+        return ($base -> callback("success","成功存入"));
     }
+
 
 
 

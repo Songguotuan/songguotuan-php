@@ -11,10 +11,6 @@ use think\Db;
 use think\Cache;
 class Base extends Controller
 {
-    public function hahaa(){
-        return 660;
-    }
-
     //功能：回调函数
     //入参：$result  $msg
     //出参：success:  $result内容  ;     false: $msg内容
@@ -64,14 +60,13 @@ class Base extends Controller
     //出参：success: $openid  ;    false: false
     public  function deletesession($session){
         // 取值（当前作用域）
-        $jsonb = Session::get($session);
-
+        $jsonb = Cache::get($session);
         $array = json_decode($jsonb);
         $openid = $array[0];
         $session_key = $array[1];
         if (empty($openid) && empty($session_key)){
             // 删除（当前作用域）
-            Session::delete($session);
+            Cache::clear($session);
 //            $redis->del($session);
             return true;
         }else{
