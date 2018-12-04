@@ -6,6 +6,7 @@
  * Time: 18:28
  */
 namespace app\index\model;
+use think\Image;
 use think\Model;
 use think\Db;
 use app\index\controller\Base;
@@ -30,4 +31,7 @@ class Order extends Model
         $result = Db::table('order')->field('id,prop_wxavatarurl,prop_wxnickname,type,price,time,rough_address,hope_time')->where('rough_address_index',$index)->where('status',1)->select();
         return ($base -> callback("success", $result));
     }
+
+
+
 }

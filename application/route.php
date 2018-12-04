@@ -33,7 +33,7 @@ Route::rule([
     //————order————//
     'fetch_order'=>'index/order/fetch_order',
     'fetch_order_index'=>'index/order/fetch_order_index',
-
+    'upload_image'=>'index/order/upload_image',
     //————home————//
     'get_carousel'=>'index/home/get_carousel',
     'fetch_pull'=>'index/home/fetch_pull',

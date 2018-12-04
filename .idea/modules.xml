@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../AiLaravel/.idea/AiLaravel.iml" filepath="$PROJECT_DIR$/../AiLaravel/.idea/AiLaravel.iml" />
       <module fileurl="file://$PROJECT_DIR$/../ou/.idea/Lanou-back.iml" filepath="$PROJECT_DIR$/../ou/.idea/Lanou-back.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/songguotuan-php.iml" filepath="$PROJECT_DIR$/.idea/songguotuan-php.iml" />
     </modules>
